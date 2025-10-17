@@ -1,0 +1,186 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0F172A;
+  color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+#bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0F172A;
+  z-index: -1;
+  pointer-events: none;
+  transition: transform 0.3s ease-out; /* smooth parallax motion */
+}
+
+
+
+
+/* Navbar */
+nav {
+  background: #0F172A;
+  border-bottom: 2px solid #06B6D4;
+  padding: 15px 30px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #8B5CF6;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
+}
+
+nav ul li a:hover {
+  color: #06B6D4;
+}
+
+/* Bio Section */
+.bio-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  min-height: 90vh;
+}
+
+.bio-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px;
+  max-width: 1000px;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Text */
+.bio-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.bio-text h1 {
+  font-size: 48px;
+  color: #06B6D4;
+}
+
+.bio-text h1 span {
+  color: #8B5CF6;
+}
+
+.bio-text p {
+  line-height: 1.7;
+  color: #E2E8F0;
+  margin: 15px 0;
+}
+
+.bio-text .quote {
+  margin-top: 30px;
+  font-style: italic;
+  color: #8B5CF6;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+/* Image */
+.bio-image img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 4px solid #06B6D4;
+  object-fit: cover;
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.bio-image img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 25px rgba(139, 92, 246, 0.6);
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Glowing Star Cursor */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #06B6D4, #8B5CF6);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: lighten;
+  z-index: 9999;
+  opacity: 0.8;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 
+    79% 91%, 50% 70%, 21% 91%, 32% 57%, 
+    2% 35%, 39% 35%
+  );
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(circle, #06B6D4, #8B5CF6);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: lighten;
+  z-index: 9998;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 
+    79% 91%, 50% 70%, 21% 91%, 32% 57%, 
+    2% 35%, 39% 35%
+  );
+}

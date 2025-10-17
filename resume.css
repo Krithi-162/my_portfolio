@@ -1,0 +1,194 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0F172A;
+  color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+#bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0F172A;
+  z-index: -1;
+  pointer-events: none;
+  transition: transform 0.3s ease-out; /* smooth parallax motion */
+}
+
+
+/* Navbar */
+nav {
+  padding: 15px 30px;
+  background: #0F172A;
+  border-bottom: 2px solid #06B6D4;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #8B5CF6;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
+}
+
+nav ul li a:hover {
+  color: #06B6D4;
+}
+
+/* Download Button */
+.download-btn {
+  display: inline-block;
+  margin-bottom: 40px;
+  padding: 12px 28px;
+  font-size: 18px;
+  color: #FFFFFF;
+  background: linear-gradient(90deg, #06B6D4, #8B5CF6);
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
+}
+
+.download-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
+  background: linear-gradient(90deg, #8B5CF6, #06B6D4);
+}
+
+/* Resume Section */
+.resume-section {
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+}
+
+.resume-section h1 {
+  font-size: 48px;
+  color: #06B6D4;
+  margin-bottom: 10px;
+}
+
+.resume-section .tagline {
+  font-size: 18px;
+  color: #8B5CF6;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+}
+
+.resume-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.resume-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  padding: 30px;
+  width: 280px;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resume-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+}
+
+.resume-card h2 {
+  color: #06B6D4;
+  margin-bottom: 15px;
+}
+
+.resume-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.resume-card ul li {
+  margin: 10px 0;
+  color: #FFFFFF;
+}
+
+/* ===== Star-Shaped Glowing Cursor ===== */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #06B6D4, #8B5CF6);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: lighten;
+  z-index: 9999;
+  opacity: 0.8;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 
+    79% 91%, 50% 70%, 21% 91%, 32% 57%, 
+    2% 35%, 39% 35%
+  );
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(circle, #06B6D4, #8B5CF6);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: lighten;
+  z-index: 9998;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 
+    79% 91%, 50% 70%, 21% 91%, 32% 57%, 
+    2% 35%, 39% 35%
+  );
+}
+
+
+/* ===== Pulse Animation ===== */
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+  50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
+}
